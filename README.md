@@ -6,6 +6,10 @@ Tiny Invoice Generator is a local-first Next.js app for drafting invoices, savin
 
 ![Tiny Invoice Generator dashboard](public/screenshots/tiny-invoice-dashboard.png)
 
+## Live demo
+
+https://tiny-invoice-generator.vercel.app
+
 ## Why it exists
 
 Freelancers often need something lighter than a full SaaS billing platform. This project focuses on the practical middle ground: fast invoice drafting, local persistence, and a polished print view without accounts, subscriptions, or backend setup.

@@ -22,6 +22,7 @@ export type InvoiceDraft = {
   invoiceNumber: string;
   issueDate: string;
   dueDate: string;
+  status: "Draft" | "Sent" | "Paid";
   currency: string;
   notes: string;
   taxRate: number;
@@ -83,6 +84,7 @@ export function createDefaultInvoiceDraft(): InvoiceDraft {
     invoiceNumber: "INV-2026-001",
     issueDate: "2026-06-01",
     dueDate: "2026-06-15",
+    status: "Draft",
     currency: "USD",
     notes: "Thanks for the project. Payment due within 14 days.",
     taxRate: 8,
