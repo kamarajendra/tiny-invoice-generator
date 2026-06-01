@@ -61,10 +61,24 @@ export function calculateInvoiceTotals(draft: InvoiceDraft): InvoiceTotals {
   };
 }
 
-export function duplicateInvoice(draft: InvoiceDraft): InvoiceDraft {
+export function duplicateInvoice(draft: InvoiceDraft, allDrafts?: InvoiceDraft[]): InvoiceDraft {
+  let nextNumber = draft.invoiceNumber;
+
+  if (allDrafts && allDrafts.length > 0) {
+    const numbers = allDrafts
+      .map((d) => {
+        const match = d.invoiceNumber.match(/INV-(\d{4})-(\d{3})/);
+        return match ? Number(match[2]) : 0;
+      })
+      .filter((n) => n > 0);
+    const maxNum = Math.max(...numbers, 0);
+    const year = new Date().getFullYear();
+    nextNumber = `INV-${year}-${String(maxNum + 1).padStart(3, "0")}`;
+  }
+
   return {
     ...draft,
-    invoiceNumber: `${draft.invoiceNumber}-COPY`,
+    invoiceNumber: nextNumber,
     lineItems: draft.lineItems.map((item) => ({ ...item, id: `${item.id}-copy` })),
   };
 }

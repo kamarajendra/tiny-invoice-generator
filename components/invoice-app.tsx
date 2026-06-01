@@ -181,7 +181,7 @@ export function InvoiceApp() {
             </button>
             <button
               type="button"
-              onClick={() => { setDraft(duplicateInvoice(draft)); setStatus("Duplicated"); }}
+              onClick={() => { const dup = duplicateInvoice(draft, [draft]); setDraft(dup); setStatus(`Created ${dup.invoiceNumber}`); }}
               className="rounded border border-[var(--color-border)] bg-[var(--color-panel)] px-5 py-2.5 text-sm font-medium hover:border-[var(--color-accent)]"
             >
               Duplicate

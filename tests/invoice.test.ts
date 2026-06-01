@@ -23,10 +23,9 @@ describe("invoice helpers", () => {
 
   it("duplicates invoice number and line item ids", () => {
     const draft = createDefaultInvoiceDraft();
+    const copy = duplicateInvoice(draft, [draft]);
 
-    const copy = duplicateInvoice(draft);
-
-    expect(copy.invoiceNumber).toBe("INV-2026-001-COPY");
+    expect(copy.invoiceNumber).toBe("INV-2026-002");
     expect(copy.lineItems[0]?.id).toBe("line-1-copy");
   });
 
