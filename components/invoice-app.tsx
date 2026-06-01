@@ -121,6 +121,13 @@ export function InvoiceApp() {
             <Field label="Invoice number">
               <input value={draft.invoiceNumber} onChange={(event) => update("invoiceNumber", event.target.value)} className={inputClassName()} />
             </Field>
+            <Field label="Status">
+              <select value={draft.status} onChange={(event) => update("status", event.target.value as InvoiceDraft["status"])} className={inputClassName()}>
+                <option value="Draft">Draft</option>
+                <option value="Sent">Sent</option>
+                <option value="Paid">Paid</option>
+              </select>
+            </Field>
             <Field label="Currency">
               <select value={draft.currency} onChange={(event) => update("currency", event.target.value)} className={inputClassName()}>
                 <option value="USD">USD</option>
@@ -261,6 +268,9 @@ export function InvoiceApp() {
             <div>
               <div className="text-sm uppercase tracking-[0.22em] text-[var(--color-muted)]">Invoice</div>
               <h2 className="mt-3 text-3xl font-semibold">{draft.invoiceNumber}</h2>
+              <div className="mt-3 inline-flex rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-sm font-medium text-[var(--color-accent)]">
+                {draft.status}
+              </div>
             </div>
             <button type="button" onClick={() => window.print()} className="rounded-full border border-[var(--color-border)] px-4 py-2 text-sm font-medium print:hidden">
               Print / PDF

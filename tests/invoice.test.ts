@@ -36,4 +36,10 @@ describe("invoice helpers", () => {
 
     expect(createLineItemId(nextLineItems)).toBe("line-3");
   });
+
+  it("starts new drafts in Draft status", () => {
+    const draft = createDefaultInvoiceDraft();
+
+    expect(draft.status).toBe("Draft");
+  });
 });
