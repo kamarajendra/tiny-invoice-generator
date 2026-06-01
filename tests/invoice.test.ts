@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   calculateInvoiceTotals,
+  createLineItemId,
   createDefaultInvoiceDraft,
   duplicateInvoice,
 } from "@/lib/invoice";
@@ -27,5 +28,12 @@ describe("invoice helpers", () => {
 
     expect(copy.invoiceNumber).toBe("INV-2026-001-COPY");
     expect(copy.lineItems[0]?.id).toBe("line-1-copy");
+  });
+
+  it("creates a new line item id without colliding after removals", () => {
+    const draft = createDefaultInvoiceDraft();
+    const nextLineItems = draft.lineItems.filter((item) => item.id !== "line-1");
+
+    expect(createLineItemId(nextLineItems)).toBe("line-3");
   });
 });
