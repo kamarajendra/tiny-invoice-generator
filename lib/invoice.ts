@@ -68,6 +68,16 @@ export function duplicateInvoice(draft: InvoiceDraft): InvoiceDraft {
   };
 }
 
+export function createLineItemId(lineItems: LineItem[]) {
+  const nextIndex = lineItems.reduce((highest, item) => {
+    const match = item.id.match(/^line-(\d+)$/);
+    const value = match ? Number(match[1]) : 0;
+    return Math.max(highest, value);
+  }, 0);
+
+  return `line-${nextIndex + 1}`;
+}
+
 export function createDefaultInvoiceDraft(): InvoiceDraft {
   return {
     invoiceNumber: "INV-2026-001",

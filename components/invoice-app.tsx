@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import {
   calculateInvoiceTotals,
+  createLineItemId,
   createDefaultInvoiceDraft,
   duplicateInvoice,
   type InvoiceDraft,
@@ -172,7 +173,7 @@ export function InvoiceApp() {
                   update("lineItems", [
                     ...draft.lineItems,
                     {
-                      id: `line-${draft.lineItems.length + 1}`,
+                      id: createLineItemId(draft.lineItems),
                       description: "New item",
                       quantity: 1,
                       unitPrice: 0,
