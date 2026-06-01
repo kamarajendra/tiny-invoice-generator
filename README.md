@@ -2,6 +2,10 @@
 
 Tiny Invoice Generator is a local-first Next.js app for drafting invoices, saving them in browser storage, and exporting clean print-ready PDFs through the browser print flow.
 
+## Screenshot
+
+![Tiny Invoice Generator dashboard](public/screenshots/tiny-invoice-dashboard.png)
+
 ## Why it exists
 
 Freelancers often need something lighter than a full SaaS billing platform. This project focuses on the practical middle ground: fast invoice drafting, local persistence, and a polished print view without accounts, subscriptions, or backend setup.
