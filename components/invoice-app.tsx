@@ -188,7 +188,7 @@ export function InvoiceApp() {
             </button>
             <button
               type="button"
-              onClick={() => { setDraft(createDefaultInvoiceDraft()); setStatus("Reset to default"); }}
+              onClick={() => { if (window.confirm("Reset to default draft? Current changes will be lost.")) { setDraft(createDefaultInvoiceDraft()); setStatus("Reset to default"); } }}
               className="rounded border border-[var(--color-border)] bg-[var(--color-panel)] px-5 py-2.5 text-sm font-medium hover:border-[var(--color-danger)]"
             >
               Reset
