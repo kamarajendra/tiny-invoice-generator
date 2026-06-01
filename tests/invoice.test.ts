@@ -28,4 +28,13 @@ describe("invoice helpers", () => {
     expect(copy.invoiceNumber).toBe("INV-2026-001-COPY");
     expect(copy.lineItems[0]?.id).toBe("line-1-copy");
   });
+
+  it("allows removing a line item by filtering ids", () => {
+    const draft = createDefaultInvoiceDraft();
+
+    const nextLineItems = draft.lineItems.filter((item) => item.id !== "line-1");
+
+    expect(nextLineItems).toHaveLength(1);
+    expect(nextLineItems[0]?.id).toBe("line-2");
+  });
 });

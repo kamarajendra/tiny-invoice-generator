@@ -72,11 +72,11 @@ export function InvoiceApp() {
               ["Workflow", "Duplicate and revise drafts"],
             ].map(([label, value]) => (
               <div key={label} className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-canvas)] p-4">
-                <div className="text-sm text-[var(--color-muted)]">{label}</div>
-                <div className="mt-2 text-xl font-semibold">{value}</div>
+                    <div className="text-sm text-[var(--color-muted)]">{label}</div>
+                    <div className="mt-2 text-xl font-semibold">{value}</div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
         </div>
 
         <div className="flex flex-col justify-between rounded-[24px] bg-[var(--color-canvas)] p-5">
@@ -220,6 +220,18 @@ export function InvoiceApp() {
                     }}
                     className={inputClassName()}
                   />
+                  <button
+                    type="button"
+                    onClick={() =>
+                      update(
+                        "lineItems",
+                        draft.lineItems.filter((lineItem) => lineItem.id !== item.id),
+                      )
+                    }
+                    className="rounded-2xl border border-[var(--color-border)] px-4 py-3 text-sm font-medium md:col-span-3"
+                  >
+                    Remove line item
+                  </button>
                 </div>
               ))}
             </div>
