@@ -1,5 +1,10 @@
 # Tiny Invoice Generator
 
+[![CI](https://github.com/kamarajendra/tiny-invoice-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/kamarajendra/tiny-invoice-generator/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/kamarajendra/tiny-invoice-generator)](https://github.com/kamarajendra/tiny-invoice-generator/releases)
+[![License](https://img.shields.io/github/license/kamarajendra/tiny-invoice-generator)](https://github.com/kamarajendra/tiny-invoice-generator/blob/main/LICENSE)
+[![Live Demo](https://img.shields.io/badge/demo-live-2f7ecb)](https://tiny-invoice-generator.vercel.app)
+
 Tiny Invoice Generator is a local-first Next.js app for drafting invoices, saving them in browser storage, and exporting clean print-ready PDFs through the browser print flow.
 
 ## Screenshot
